@@ -26,6 +26,7 @@
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="gmaps.jsp">Map</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -36,7 +37,7 @@
               <br/><br/><br/>
               <table id="signGroup">
               <div >
-              <tr><td>Email</td> <td><input name="email" id="email" class="span2" type="text" placeholder="Email" value="siva"></td></tr>
+              <tr><td>Email</td> <td><input name="email" id="email" class="span2" type="text" placeholder="Email"></td></tr>
               <tr><td>Password</td> <td> <input name="password" id="password"  class="span2" type="password" placeholder="Password"></td></tr>
               <tr id="signinRow"><td><button type="submit" id="signin" class="btn">Sign in</button></td></tr>
               </div>
