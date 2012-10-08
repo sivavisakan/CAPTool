@@ -42,7 +42,16 @@ public class LoginServlet extends HttpServlet {
 				req.setAttribute("error","<div class=\"alert alert-success\"> You have successfully signed up! Please login with your credentials! </div>");
 				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 			}
-
+			
+			if(req.getParameter("nextAlert1") != null){
+				req.getRequestDispatcher("/alert2.jsp").forward(req, resp);
+				return;
+			}
+			
+			if(req.getParameter("backAlert2") != null){
+				req.getRequestDispatcher("/alert.jsp").forward(req, resp);
+				return;
+			}
 			//Checks if the form is for sign-in
 			if(req.getParameter("signin") != null){
 				String mail = req.getParameter("email");
@@ -58,12 +67,14 @@ public class LoginServlet extends HttpServlet {
 						if(cPassword.equals(password)){
 							req.setAttribute("firstname",cName);
 							req.getRequestDispatcher("/profile.jsp").forward(req, resp);
+							return;
 						}
 					}
 				}	
 				//When there is something wrong with the user entered credentials, send an error message!
 				req.setAttribute("error","<div class=\"alert alert-error\"> Either your email or Password is wrong; Please try again </div>");
 				req.getRequestDispatcher("/index.jsp").forward(req, resp);
+				return;
 			}
 		}
 		catch(ServletException e){
