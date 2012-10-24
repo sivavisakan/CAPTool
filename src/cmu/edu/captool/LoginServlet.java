@@ -66,6 +66,7 @@ public class LoginServlet extends HttpServlet {
 						//Get the password from the data base and check	  
 						if(cPassword.equals(password)){
 							req.setAttribute("firstname",cName);
+							req.setAttribute("mapmenu","<li><a href=\"map.jsp\">Map</a></li>");
 							req.getRequestDispatcher("/profile.jsp").forward(req, resp);
 							return;
 						}
