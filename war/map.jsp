@@ -102,23 +102,24 @@ body { /* TODO: achieve this padding using bootstrap  */
         var geocoder; // = new google.maps.Geocoder();
         var markers = [];
 
+        // Either circle or polygon
         var toolID = 1;
 
         // Circle variables
         var centerPoint;
         var radiusPoint;
-        var circleOptions;
+        var circleOptions;  // init here
         var circles = [];
 
         // Polygon variables
-        var polygonOptions;
-        var polyPoints = [];
-        var polygons = [];
-        var curPolygon;
+        var polygonOptions;  // init here
+        var polyPoints = []; // Array of latLng objects defined in the google maps library.
+                             // It saves the vertices of a polygon that is being edited.    
+        var polygons = []; // arrray of Polygon objects defined in the google maps ibrary
+        var curPolygon; // current // This variable holds a polygon that is being edited
 
         // Setup the map.
         function initialize() {
-            geocoder = new google.maps.Geocoder();
             var mapOptions = {
                 center : new google.maps.LatLng(37.4106, -122.0596),
                 zoom : 8,
@@ -127,10 +128,10 @@ body { /* TODO: achieve this padding using bootstrap  */
                 scaleControl : true,
                 mapTypeControl : true,
 
-                mapTypeId : google.maps.MapTypeId.HYBRID
+                mapTypeId : google.maps.MapTypeId.HYBRID // take out street view
             };
             map = new google.maps.Map(document.getElementById("map_canvas"),
-                    mapOptions);
+                    mapOptions); //keep
 
             // Initializethe geocoder.
             geocoder = new google.maps.Geocoder();
@@ -156,8 +157,10 @@ body { /* TODO: achieve this padding using bootstrap  */
             };
 
             // Initialize the click event listener
-            google.maps.event.addListener(map, 'click', addLatLng);
+            google.maps.event.addListener(map, 'click', addLatLng); // keep
         }
+        
+        
         // Add overlays at the cursor position when the map is clicked.
         function addLatLng(event) {
             // Add a marker to the map position and push it to the array of markers.
@@ -171,7 +174,7 @@ body { /* TODO: achieve this padding using bootstrap  */
             if (toolID == 1) {
                 // Polygon is selected
                 addToPolygon(event.latLng)
-            } else {
+            } else { // else if
                 // Circle is selected
                 addToCircle(event.latLng);
             }
@@ -235,7 +238,7 @@ body { /* TODO: achieve this padding using bootstrap  */
             radiusPoint = null;
         }
         // Calculates the distance between two coordinates.
-        function distance(lat1, lon1, lat2, lon2) {
+        function distance(lat1, lon1, lat2, lon2) { // experiment with basic calculation
             var R = 6371000; // earth's radius in meters
             var dLat = (lat2 - lat1) * Math.PI / 180;
             var dLon = (lon2 - lon1) * Math.PI / 180;
