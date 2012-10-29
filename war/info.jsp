@@ -5,9 +5,9 @@
     <li id="step" class="step-3">Resource</li>
     <li id="step" class="step-4">Finish</li>
 </ol>
-              
               <form name="alertForm" action="/sign" method="post">
               <div id="listInfo">
+              
               <div id="t1">
               <h4 class="expanderHead" id="eh0" data-index=0 style="cursor:pointer;">
 			Info Block Number <script></script> <span class="expanderSign">+</span>
@@ -75,11 +75,31 @@
               <tr><td>Contact</td><td><input class="input-large" type="text" name="contact"/></td></tr>
               <tr><td>Parameter</td><td><input class="input-large" type="text" name="parameter"/></td></tr>
               </table>
+              
+              <div id="resourceList0">
+              <div id="resource0" class="resourceEntry">
+              <h4 class="resourceExpanderHead" id="reh0" data-index=0 style="cursor:pointer;">
+				Resource Block Number <script></script> <span class="expanderSign">+</span>
+			  </h4>
+			  <div class="resourceExpanderContent" id="rec0" data-index=0 style="display:none">
+              <table>
+              <tr><td>Resource Description &nbsp</td><td><input class="input-large" type="text" name="resource"/></td></tr>
+              <tr><td>MIME Type &nbsp</td><td><input class="input-large" type="text" name="mime"/></td></tr>
+              <tr><td>Size &nbsp</td><td><input class="input-large" type="text" name="size"/></td></tr>
+              <tr><td>URI &nbsp</td><td><input class="input-large" type="text" name="uri"/></td></tr>
+              <tr><td>derefURI &nbsp</td><td><input class="input-large" type="text" name="derefuri"/></td></tr>
+              </table>
+              </div>
+              </div>
+              </div>
+              <button data-index=0 class="btn btn-primary arb" type="button">Add another Resource block</button>
+
+              </table>
               </div>
               </div>
               </div>
 
-              <button onclick="addTable();return false;" class="btn btn-primary" type="button">Add another Info block</button>
+              <button onclick="addInfoBlock();return false;" class="btn btn-primary" type="button">Add another Info block</button>
 			  <table>
 			  <tr><td align="left"><button type="submit" name="backAlert2">Back</button></a></td><td align="right"><button type="submit" name="nextAlert2">Next</button></td></tr>
 			  </table>              
