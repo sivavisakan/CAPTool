@@ -111,6 +111,7 @@ body { /* TODO: achieve this padding using bootstrap  */
 		var radiusPoint;
 		var circleOptions; // init here
 		var circles = [];
+		var currentCircle;
 
 		// Polygon variables
 		var polygonOptions; // init here
@@ -121,6 +122,7 @@ body { /* TODO: achieve this padding using bootstrap  */
 		var timeout;
 		var closePoly;
 
+		
 		// Setup the map.
 		function initialize() {
 			var mapOptions = {
@@ -165,9 +167,20 @@ body { /* TODO: achieve this padding using bootstrap  */
 			// Initialize the event listeners
 			google.maps.event.addListener(map, 'click', function(event) {
 				if ((toolID == 2) && timeout) {
-					getObject('test').innerHTML = "circle" + new Date();
 					clearTimeout(timeout);
-					addMarker(event);
+					
+					if (radiusPoint) {
+                        centerPoint = null;
+                        currentCircle = null;
+                        radiusPoint = null;
+                        addMarker(event);
+					}
+					else if (currentCircle){
+						addToCircle(event.latLng);
+					}
+					else{
+						addMarker(event);
+					}
 				} else if ((toolID == 1) && (polyPoints.length >= 3)) {
 					timeout = setTimeout(addMarker, 200, event);
 				} else {
@@ -190,6 +203,7 @@ body { /* TODO: achieve this padding using bootstrap  */
 			});
 		}
 
+		
 		// Add overlays at the cursor position when the map is clicked.
 		function addMarker(event) {
 			// Add a marker to the map position and push it to the array of markers.
@@ -206,6 +220,8 @@ body { /* TODO: achieve this padding using bootstrap  */
 
 			} else { // else if
 				// Circle is selected
+				currentCircle = new google.maps.Circle(circleOptions);
+				circles.push(currentCircle);
 				addToCircle(event.latLng);
 
 				// Make sure to lock any previous polygon 
@@ -213,6 +229,8 @@ body { /* TODO: achieve this padding using bootstrap  */
 				curPolygon = null;
 			}
 		}
+		
+		
 		// Adds a map position as the vertex of a polygon
 		function addToPolygon(position) {
 			// Add the position to the array of polygon points
@@ -231,6 +249,8 @@ body { /* TODO: achieve this padding using bootstrap  */
 				polyPoints.push(position);
 			}
 		}
+		
+		
 		// Draws a polygon overlay on the map.
 		function drawPolygon() {
 			// Change the path of the existing current polygon
@@ -245,6 +265,8 @@ body { /* TODO: achieve this padding using bootstrap  */
 				polygons.push(curPolygon);
 			}
 		}
+		
+		
 		// Adds a map position as the center or the radius point of a circle
 		function addToCircle(position) {
 			if (centerPoint) {
@@ -254,23 +276,27 @@ body { /* TODO: achieve this padding using bootstrap  */
 				centerPoint = position;
 			}
 		}
+		
+		
 		// Draws a circle overlay on the map.
 		function drawCircle() {
 			// Get the distance between the center and the radius point
 			radius = distance(centerPoint.lat(), centerPoint.lng(), radiusPoint
 					.lat(), radiusPoint.lng());
 
-			circleOptions.center = centerPoint;
-			circleOptions.radius = radius;
+			currentCircle.setCenter(centerPoint);
+			currentCircle.setRadius(radius);
 
-			circle = new google.maps.Circle(circleOptions);
+			//circle = new google.maps.Circle(circleOptions);
 
-			circles.push(circle);
+			//circles.push(circle);
 
 			// Reset the center and the radius
-			centerPoint = null;
-			radiusPoint = null;
+			//centerPoint = null;
+			//radiusPoint = null;
 		}
+		
+		
 		// Calculates the distance between two coordinates.
 		function distance(lat1, lon1, lat2, lon2) { // experiment with basic calculation
 			var R = 6371000; // earth's radius in meters
@@ -284,6 +310,8 @@ body { /* TODO: achieve this padding using bootstrap  */
 			var d = R * c;
 			return d;
 		}
+		
+		
 		// Deletes all overlays.
 		function deleteOverlays() {
 			// Delete all markers in the markers array by removing references to them.
@@ -312,6 +340,8 @@ body { /* TODO: achieve this padding using bootstrap  */
 				curPolygon = null;
 			}
 		}
+		
+		
 		// Centers the map to the address input.
 		function showAddress(address) {
 			geocoder
