@@ -1,8 +1,8 @@
 <%@include file="infoHeader.jsp" %>
-<ol id="noStep" class="selected-step-3">
+<ol id="noStep" class="selected-step-2">
 	<li id="step" class="step-1">Alert Message</li>
-	<li id="step" class="step-2">Area </li>
-	<li id="step" class="step-3">Information</li>
+	<li id="step" class="step-2">Information </li>
+	<li id="step" class="step-3">Resource</li>
 	<li id="step" class="step-4">Finish</li>
 </ol>
 <form name="infoForm" id="infoForm" action="/sign" method="post">
@@ -28,24 +28,6 @@
 	   <tr><td>Web</td><td><input class="input-large web" type="text" name="web"/></td></tr>
 	   <tr><td>Contact</td><td><input class="input-large contact" type="text" name="contact"/></td></tr>
 	   </table>
-	   
-	   <div id="resourceList0">
-	    <input type="hidden" name="count" id="count0" value="1"/>
-		<div id="resource0" class="resourceEntry">
-			<h4 class="resourceExpanderHead" id="reh0" data-index=0 style="cursor:pointer;">
-			Resource <span class="expanderSign">+</span>
-			</h4>
-			<div class="resourceExpanderContent" id="rec0" data-index=0 style="display:none">
-				<table>
-					<tr><td>Resource Description &nbsp</td><td><input class="input-large" type="text" name="resource"/></td></tr>
-					<tr><td>URI &nbsp</td><td><input class="input-large" type="text" name="uri"/></td></tr>
-				</table>
-			</div>
-		</div>
-	   </div>
-	   <button data-index=0 class="btn btn-info btn-small arb" type="button">+ Resource block</button>
-
-	   
   	</div>
  </div>
 </div>

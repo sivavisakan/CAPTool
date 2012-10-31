@@ -44,19 +44,27 @@ public class LoginServlet extends HttpServlet {
 			}
 			
 			if(req.getParameter("nextAlert1") != null){
+				req.getRequestDispatcher("/map.jsp").forward(req, resp);
+				return;
+			}
+			if(req.getParameter("nextInfo") != null){
 				req.getRequestDispatcher("/info.jsp").forward(req, resp);
 				return;
 			}
-			if(req.getParameter("nextAlert2") != null){
-				req.getRequestDispatcher("/alert3.jsp").forward(req, resp);
-				return;
-			}
-			if(req.getParameter("nextAlert3") != null){
-				req.getRequestDispatcher("/alert4.jsp").forward(req, resp);
+			if(req.getParameter("nextfinish") != null){
+				req.getRequestDispatcher("/finish.jsp").forward(req, resp);
 				return;
 			}
 			
-			if(req.getParameter("backAlert2") != null){
+			if(req.getParameter("backAlert") != null){
+				req.getRequestDispatcher("/alert.jsp").forward(req, resp);
+				return;
+			}
+			if(req.getParameter("backMap") != null){
+				req.getRequestDispatcher("/map.jsp").forward(req, resp);
+				return;
+			}
+			if(req.getParameter("backInfo") != null){
 				req.getRequestDispatcher("/alert.jsp").forward(req, resp);
 				return;
 			}

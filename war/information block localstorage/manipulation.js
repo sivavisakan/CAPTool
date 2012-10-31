@@ -25,16 +25,18 @@ $(function() {
     $('#infoForm').submit(function() {
     	debugger
     	window.localStorage.setItem("infoForm", JSON.stringify($('#infoForm').serializeObject()));
-    	
+    	return false;
     });
  });
 $(function(){
-	var resourceIndex = 0;
 	var infoForm = localStorage.getItem('infoForm');
+	
 	
 	if( infoForm != null){
 		
 		var infoJSON = $.parseJSON(infoForm);
+		var infoLength = infoJSON.language.length; // Subtracting the Model Block from the count !
+		var expanderIndex = 1;
 		//Populating the Main Information Block 
 		var $block = $('#t1');
 		$block.find('.event').val(infoJSON.event[0]);
@@ -49,34 +51,10 @@ $(function(){
 		$block.find('.senderName').val(infoJSON.senderName[0]);
 		$block.find('.headline').val(infoJSON.headline[0]);
 		$block.find('.description').val(infoJSON.description[0]);
+		debugger;
 		$block.find('.instruction').val(infoJSON.instruction[0]);
 		$block.find('.web').val(infoJSON.web[0]);
 		$block.find('.contact').val(infoJSON.contact[0]);
-		$block.find('#count').val(infoJSON.count[0]);
-		//$block.find('#resourceList').attr('id','resourceList'+0);
-		//$block.find('.arb').attr('data-index',0);
-		
-		//$block.find('.resourceExpanderHead').attr('id','reh'+0);
-		//$block.find('.resourceExpanderHead').attr('data-index',0);
-		//$block.find('.resourceExpanderContent').attr('id','rec'+0);
-		//$block.find('.resourceExpanderContent').attr('data-index',0);
-		
-		var count = infoJSON.count[0];
-		var infoLength = infoJSON.language.length; 
-		var expanderIndex = 1;
-		var resourceIndex = 1;
-		for(i = 1 ; i < count ; i++){
-			var $resourceBlock = $('#resource').clone();
-			$resourceBlock.find('.resourceEntry').attr('id','resource'+resourceIndex);
-			$resourceBlock.find('.resourceExpanderHead').attr('id','reh'+resourceIndex);
-			$resourceBlock.find('.resourceExpanderHead').attr('data-index',resourceIndex);
-			$resourceBlock.find('.resourceExpanderContent').attr('id','rec'+resourceIndex);
-			$resourceBlock.find('.resourceExpanderContent').attr('data-index',resourceIndex);
-			resourceIndex++;
-			$resourceBlock.appendTo('#resourceList0');
-		}
-		$block.appendTo('#listInfo');
-		
 		for(var i = 1 ; i < infoLength ; i++){
 			var $block = $('#t2').clone();
 			$block.find('.expanderHead').attr('id','eh'+expanderIndex);
@@ -97,38 +75,19 @@ $(function(){
 			$block.find('.senderName').val(infoJSON.senderName[i]);
 			$block.find('.headline').val(infoJSON.headline[i]);
 			$block.find('.description').val(infoJSON.description[i]);
+			debugger;
 			$block.find('.instruction').val(infoJSON.instruction[i]);
 			$block.find('.web').val(infoJSON.web[i]);
 			$block.find('.contact').val(infoJSON.contact[i]);
-			$block.find('#count').val(infoJSON.count[i]);
-			$block.find('#resourceList').attr('id','resourceList'+i);
-			$block.find('.arb').attr('data-index',i);
-			
-			$block.find('.resourceEntry').attr('id','resource'+resourceIndex);
-			$block.find('.resourceExpanderHead').attr('id','reh'+resourceIndex);
-			$block.find('.resourceExpanderHead').attr('data-index',resourceIndex);
-			$block.find('.resourceExpanderContent').attr('id','rec'+resourceIndex);
-			$block.find('.resourceExpanderContent').attr('data-index',resourceIndex);
-			resourceIndex++;
 			$block.appendTo('#listInfo');
-			var count = infoJSON.count[i];
-			debugger;
-			for(var j = 1 ; j < count ; j++){
-				var $resourceBlock = $('#resource').clone();
-				$resourceBlock.find('.resourceEntry').attr('id','resource'+resourceIndex);
-				$resourceBlock.find('.resourceExpanderHead').attr('id','reh'+resourceIndex);
-				$resourceBlock.find('.resourceExpanderHead').attr('data-index',resourceIndex);
-				$resourceBlock.find('.resourceExpanderContent').attr('id','rec'+resourceIndex);
-				$resourceBlock.find('.resourceExpanderContent').attr('data-index',resourceIndex);
-				resourceIndex++;
-				$resourceBlock.appendTo('#resourceList'+i)
-			}
-			
 		}
-		
-		
-		
- 
+//		$("#messageStatus").val(alertJSON.messageStatus); 
+//		$("#messageType").val(alertJSON.messageType); 
+//		$("#source").val(alertJSON.source); 
+//		$("#scope").val(alertJSON.scope); 
+//		$("#code").val(alertJSON.code); 
+//		$("#addressInput").val(alertJSON.addressInput); 
+//		$("#restrictionInput").val(alertJSON.restrictionInput); 
 	}
 });
 $(document).ready(function(e){
@@ -159,19 +118,16 @@ $(document).ready(function(e){
 		});
 		$("#listInfo").on('click','.arb',function(e){
 			var index = e.currentTarget.getAttribute('data-index');
-			var $block = $('#resource').clone();
+			var $block = $('#resource0').clone();
+			//var $block = $modelResourceBlock;
 			j++;
-			$block.find('.resourceEntry').attr('id','resource'+j);
+			//$block.find('.resourceEntry').attr('id','resource'+j);
 			$block.find('.resourceExpanderHead').attr('id','reh'+j);
 			$block.find('.resourceExpanderHead').attr('data-index',j);
 			$block.find('.resourceExpanderContent').attr('id','rec'+j);
 			$block.find('.resourceExpanderContent').attr('data-index',j);
 			$block.appendTo('#resourceList'+index);
-			debugger;
-			var count = $('#count'+index).val();
-			count++;
-			$('#count'+index).val(count);
-			console.log('#count' + index+' = '+count);
+			console.log('The resource index value currently is j = ' + j);
 			return false;
 		});
 		$('.timepicker-default').timepicker();
@@ -180,6 +136,25 @@ $(document).ready(function(e){
 /**
  * Adds another Info block to the Form!
  */
+function addInfoBlock(){
+	var $block = $('#t2').clone();
+	i++;
+	$block.find('.expanderHead').attr('id','eh'+i);
+	$block.find('.expanderHead').attr('data-index',i);
+	$block.find('.expanderContent').attr('id','ec'+i);
+	$block.find('.expanderContent').attr('data-index',i);
+	j++;
+	$block.find('.arb').attr('data-index',j);
+	$block.find('#resourceList0').attr('id','resourceList'+j);
+	$block.find('#resource0').attr('id','resource'+j);
+	$block.find('.resourceExpanderHead').attr('id','reh'+j);
+	$block.find('.resourceExpanderHead').attr('data-index',j);
+	$block.find('.resourceExpanderContent').attr('id','rec'+j);
+	$block.find('.resourceExpanderContent').attr('data-index',j);
+	$block.appendTo('#listInfo');
+	console.log('The index value  currently is' + i);
+}
+
 function addBlock(){
 	var $block = $('#t2').clone();
 	i++;
@@ -192,7 +167,6 @@ function addBlock(){
 	$block.find('.arb').attr('data-index',j);
 	$block.find('#resourceList').attr('id','resourceList'+j);
 	$block.find('#resource').attr('id','resource'+j);
-	$block.find('#count').attr('id','count'+j);
 	$block.find('.resourceExpanderHead').attr('id','reh'+j);
 	$block.find('.resourceExpanderHead').attr('data-index',j);
 	$block.find('.resourceExpanderContent').attr('id','rec'+j);
