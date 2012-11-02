@@ -43,13 +43,29 @@ public class LoginServlet extends HttpServlet {
 				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 			}
 			
-			if(req.getParameter("nextAlert1") != null){
-				req.getRequestDispatcher("/alert2.jsp").forward(req, resp);
+			if(req.getParameter("nextMap") != null){
+				req.getRequestDispatcher("/map.jsp").forward(req, resp);
+				return;
+			}
+			if(req.getParameter("nextInfo") != null){
+				req.getRequestDispatcher("/info.jsp").forward(req, resp);
+				return;
+			}
+			if(req.getParameter("nextFinish") != null){
+				req.getRequestDispatcher("/finish.jsp").forward(req, resp);
 				return;
 			}
 			
-			if(req.getParameter("backAlert2") != null){
+			if(req.getParameter("backAlert") != null){
 				req.getRequestDispatcher("/alert.jsp").forward(req, resp);
+				return;
+			}
+			if(req.getParameter("backMap") != null){
+				req.getRequestDispatcher("/map.jsp").forward(req, resp);
+				return;
+			}
+			if(req.getParameter("backInfo") != null){
+				req.getRequestDispatcher("/info.jsp").forward(req, resp);
 				return;
 			}
 			//Checks if the form is for sign-in
