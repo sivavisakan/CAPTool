@@ -8,8 +8,8 @@
 <form name="infoForm" id="infoForm" action="/sign" method="post">
 <div id="listInfo">
  <div id="t1">
-	<h4 class="expanderHead" id="eh0" data-index=0 style="cursor:pointer;">
-	Information <script></script> <span class="expanderSign">+</span>
+	<h4 class="expanderHead well" id="eh0" data-index=0 style="cursor:pointer;">
+	Information 1 <script></script> <span class="expanderSign"><i class="icon-plus-sign"></i></span>
 	</h4>
  	<div class="expanderContent" id="ec0" data-index=0 style="display:none">
 	   <table>
@@ -29,11 +29,11 @@
 	   <tr><td>Contact</td><td><input class="input-large contact" type="text" name="contact"/></td></tr>
 	   </table>
 	   
-	   <div id="resourceList0">
+	   <div id="resourceList0" class="hero">
 	    <input type="hidden" name="count" id="count0" value="1"/>
 		<div id="resource0" class="resourceEntry">
-			<h4 class="resourceExpanderHead" id="reh0" data-index=0 style="cursor:pointer;">
-			Resource <span class="expanderSign">+</span>
+			<h4 class="resourceExpanderHead well" id="reh0" data-index=0 style="cursor:pointer;">
+			Resource <span class="expanderSign"><i class="icon-plus-sign"></i></span>
 			</h4>
 			<div class="resourceExpanderContent" id="rec0" data-index=0 style="display:none">
 				<table>
@@ -43,14 +43,16 @@
 			</div>
 		</div>
 	   </div>
+	   
 	   <button data-index=0 class="btn btn-info btn-small arb" type="button">+ Resource block</button>
 
 	   
   	</div>
  </div>
 </div>
-<button onclick="addBlock();return false;" class="btn btn-info btn-small" type="button">+ Information</button> <br/>
-<table><tr><td align="left"><button type="submit" class="btn btn-primary btn-small" name="backAlert2">Back</button></td><td align="right"><button type="submit" class="btn btn-primary btn-small" name="nextAlert2">Next</button></td></tr></table>
+<br/>
+<button onclick="addBlock();return false;" class="btn btn-info btn-small" type="button">+ Information</button> <br/><br/>
+<table><tr><td align="left"><button type="submit" class="btn btn-primary btn-small" name="backAlert2">Back</button></td><td align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary btn-small" name="nextAlert2">Next</button></td></tr></table>
 </form>
 </div> <!-- Main Containers Div End -->
 <%@include file="footer.jsp" %>

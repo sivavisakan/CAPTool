@@ -62,24 +62,17 @@
     
     </script>
 
-<ol id="noStep" class="selected-step-1">
+<ol id="noStep" class="selected-step-4">
     <li id="step" class="step-1">Alert Message</li>
-    <li id="step" class="step-2">Area</li>
-    <li id="step" class="step-3">Information</li>
+    <li id="step" class="step-2">Information </li>
+    <li id="step" class="step-3">Resource</li>
     <li id="step" class="step-4">Finish</li>
 </ol>
               
               <form name="alertForm" id="alertForm" action="/sign" method="post">
-              <div id="map"></div>
-              <table>
-              <tr><td>Status &nbsp</td><td><select name="messageStatus" id="messageStatus"><option>Actual</option><option>Exercise</option><option>System</option><option>Test</option><option>Draft</option></select></td></tr>
-              <tr><td>Message Type &nbsp</td><td><select name="messageType" id="messageType"><option>Alert</option><option>Update</option><option>Cancel</option><option>Ack</option><option>Error</option></select></td></tr>
-              <tr><td>Source</td><td><input class="input-large" type="text" name="source" id="source"/></td></tr>
-              <tr id="scoper"><td>Scope</td><td><select name="scope" id="scope" onchange="checkScope()"><option>Public</option><option>Restricted</option><option>Private</option></select></td></tr>
-              <tr id="restricted"></tr>
-              <tr id="address"></tr>
-              <tr><td>Code</td><td><input class="input-large" type="text" name="code" id="code"/></td></tr>
-              <tr><td></td><td align="right"><button type="submit" class="btn-primary"name="nextAlert1">Next</button></td></tr>
-              </table>
+              <div class="hero-unit">
+              <h4><input type="checkbox" name="vehicle" value="Bike"> All the information provided are correct to the best of my knowledge</h4>
+              <br/><button class="btn-primary btn-large"> < Review </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn-primary btn-large">Send ></button>
+              </div>
               </form>
 <%@include file="footer.jsp" %>

@@ -1,5 +1,6 @@
 <%@include file="header.jsp" %>
     <form method="post" action="/sign">
+    <div class="hero-unit">
               <table id="signGroup">
               <div >
               <tr><td>Email</td> <td><input name="email" id="email" class="span2" type="text" placeholder="Email"></td></tr>
@@ -13,5 +14,6 @@
 	 	 if(error != null) { %>
 	 <%= error %>
 	 <%  } %>
-	 </div>           
+	 </div>          
+	 </div> 
 <%@include file="footer.jsp" %>
