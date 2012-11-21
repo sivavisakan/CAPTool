@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		try {
 			//Get the intance of the datastore
+			
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			Key UsersKey = KeyFactory.createKey("CAP", "Users"); //Create a UsersKey -> Similar to Users Table
 			//Checks if the form is for signup
