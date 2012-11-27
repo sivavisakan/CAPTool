@@ -38,7 +38,7 @@
 <div class="container" id="mainContainer">
               <div id="t2">
               <h4 class="expanderHead" id="eh" data-index=0 style="cursor:pointer;">Information
-			 <span class="expanderSign">+</span>
+			 <span class="expanderSign"><i class="icon-plus-sign"></i></span>
 			  </h4>
 			  <div class="expanderContent" id="ec" data-index=0 style="display:none">
               <table>
@@ -62,7 +62,7 @@
                <input class="input-large" type="hidden" name="count" id="count" value="1"/>
 		<div id="resource" class="resourceEntry">
 			<h4 class="resourceExpanderHead" id="reh" data-index=0 style="cursor:pointer;">
-			Resource <span class="expanderSign">+</span>
+			Resource <span class="expanderSign"><i class="icon-plus-sign"></i></span>
 			</h4>
 			<div class="resourceExpanderContent" id="rec" data-index=0 style="display:none">
 				<table>

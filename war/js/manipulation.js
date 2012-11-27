@@ -137,12 +137,13 @@ $(document).ready(function(e){
     		// var $ec = $('.expanderContent')[index];
     		var sliderId = '#ec'+index;
     		$(sliderId).slideToggle();
+    		debugger;
     		var sign = e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML;
-    		if (sign == "+"){
-    			e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML = '-';
+    		if ($(sign).attr('class') == "icon-plus-sign"){
+    			e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML = '<i class="icon-minus-sign"></i>';
     		}
     		else {
-    			e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML = '+';
+    			e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML = '<i class="icon-plus-sign"></i>';
     		}
     	});
 		$("#listInfo").on('click','.resourceExpanderHead',function(e){			
@@ -150,11 +151,11 @@ $(document).ready(function(e){
 			var sliderId = '#rec'+index;
 			$(sliderId).slideToggle();
 			var sign = e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML;
-			if (sign == "+"){
-				e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML = '-';
+			if ($(sign).attr('class') == "icon-plus-sign"){
+				e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML = '<i class="icon-minus-sign"></i>';
 			}
 			else {
-				e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML = '+';
+				e.currentTarget.getElementsByClassName('expanderSign')[0].innerHTML = '<i class="icon-plus-sign"></i>';
 			}
 		});
 		$("#listInfo").on('click','.arb',function(e){

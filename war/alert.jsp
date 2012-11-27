@@ -64,8 +64,8 @@
 
 <ol id="noStep" class="selected-step-1">
     <li id="step" class="step-1">Alert Message</li>
-    <li id="step" class="step-2">Information </li>
-    <li id="step" class="step-3">Resource</li>
+    <li id="step" class="step-2">Area</li>
+    <li id="step" class="step-3">Information</li>
     <li id="step" class="step-4">Finish</li>
 </ol>
               
