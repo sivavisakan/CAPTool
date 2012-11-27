@@ -122,7 +122,6 @@
   	</div>
  </div>
 </div>
-<<<<<<< HEAD
 <button onclick="addBlock();return false;" class="btn btn-info btn-small" type="button">+ Information</button> <br/>
 <table><tr><td align="left"><button type="submit" class="btn btn-primary btn-small" name="backMap">Back</button></td><td align="right"><button type="submit" class="btn btn-primary btn-small" name="nextFinish">Next</button></td></tr></table>
 </form>
