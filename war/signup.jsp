@@ -1,5 +1,5 @@
 <%@include file="header.jsp" %>
-<form method="post" action="/sign">
+<form method="post" action="/Login">
 	<table id="signGroup">
 		<div>
 			<tr>
